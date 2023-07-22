@@ -33,7 +33,7 @@ void bubble_sort(int *array, size_t size)
 				swapped = 1;
 			}
 		}
-		if(!swapped)
+		if (!swapped)
 			break;
 	}
 }
