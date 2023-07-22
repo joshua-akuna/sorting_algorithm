@@ -1,7 +1,10 @@
 #include "sort.h"
 
 /**
- * insertion_sort - 
+ * insertion_sort_list - sorts a doubly linked list of integers
+ *	in ascending order using the Insertion sort algorithm.
+ * @list: a pointer to a doubly linked list.
+ * Return: Nothing.
  */
 void insertion_sort_list(listint_t **list)
 {
@@ -21,7 +24,6 @@ void insertion_sort_list(listint_t **list)
 			node->prev->next = node->next;
 			if (node->next)
 				node->next->prev = node->prev;
-			
 			/* moving the node before the previous node */
 			node->next = node->prev;
 			node->prev = node->prev->prev;
