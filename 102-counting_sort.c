@@ -12,7 +12,6 @@ void counting_sort(int *array, size_t size)
 	size_t idx;
 	int *counter_arr, *temp_arr;
 
-	(void)temp_arr;
 	if (array == NULL || size < 2)
 		return;
 	/* find the max element in array to determine the size of counter_arr */
