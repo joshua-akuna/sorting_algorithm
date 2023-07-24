@@ -10,8 +10,9 @@ void counting_sort(int *array, size_t size)
 {
 	int i, max;
 	size_t idx;
-	int *counter_arr = NULL, *temp_arr = NULL;
+	int *counter_arr, *temp_arr;
 
+	(void)temp_arr;
 	if (array == NULL || size < 2)
 		return;
 	/* find the max element in array to determine the size of counter_arr */
@@ -19,7 +20,7 @@ void counting_sort(int *array, size_t size)
 	for (idx = 0; idx < size; idx++)
 		if (array[idx] > max)
 			max = array[idx];
-	counter_arr = malloc(sizeof(int) * (max + 1));
+	counter_arr = malloc((max + 1) * sizeof(int));
 	if (counter_arr == NULL)
 		return;
 	/* initialize the elements of counter_arr to 0 */
@@ -29,7 +30,7 @@ void counting_sort(int *array, size_t size)
 	for (idx = 0; idx < size; idx++)
 		counter_arr[array[idx]]++;
 	/* calculate and print the accumulation of the counter_arr */
-	for (i = 0; i <= max; i++)
+	for (i = 1; i <= max; i++)
 		counter_arr[i] += counter_arr[i - 1];
 	print_array(counter_arr, max + 1);
 	temp_arr = malloc(sizeof(int) * size);
