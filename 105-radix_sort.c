@@ -2,26 +2,37 @@
 
 void count_sort_algo(int *array, int size, int exp);
 
+/**
+ * radix_sort - sorts the array of integers in ascending order.
+ * @array: the array of integers.
+ * @size: size of the array.
+ */
 void radix_sort(int *array, size_t size)
 {
-        int max, exp, i;
+	int max, exp, i;
+	
+	if (array == NULL && size < 2)
+		return;
 
-        if (array == NULL && size < 2)
-                return;
-
-        (void) exp;
-        max = array[0];
-        for (i = 0; i < (int) size; i++)
-                if (array[i] > max)
-                        max = array[i];
-
-        for (exp = 1; max / exp > 0; exp *= 10)
+	max = array[0];
+	for (i = 0; i < (int) size; i++)
+		if (array[i] > max)
+			max = array[i];
+	
+	for (exp = 1; max / exp > 0; exp *= 10)
 	{
 		count_sort_algo(array, size, exp);
 		print_array(array, size);
 	}
 }
 
+/**
+ * count_sort_algo - perform counting sort of the array according
+ *	to the digit represented by the exponent exp.
+ * @array: the array of integers to sort.
+ * @size: of the the array.
+ * @exp: exponent used to sort the array.
+ */ 
 void count_sort_algo(int *array, int size, int exp)
 {
         int *output, *count;
