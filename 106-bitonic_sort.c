@@ -1,6 +1,7 @@
 #include "sort.h"
 
-void bitonic_sort_algo(int *array, int first, int last, int direction);
+void bitonic_sorting(int *array, int first, int new_size,
+		int direction, int size);
 void bitonic_merge(int *array, int first, int size, int direction);
 
 /**
@@ -14,7 +15,7 @@ void bitonic_sort(int *array, size_t size)
 
 	if (array == NULL || size < 2)
 		return;
-	bitonic_sort_algo(array, 0, size, dir);
+	bitonic_sorting(array, 0, size, dir, size);
 }
 
 /**
@@ -22,19 +23,28 @@ void bitonic_sort(int *array, size_t size)
  *	recursively by splitting it into sub arrays.
  * @array: the array of integers to sort.
  * @first: the first index of the sub array.
- * @size: size of the array.
+ * @new_size: size of the sub array.
  * @direction: specify the sort order, UP (1) or DOWN (0);
+ * @size: size of the array.
  */
-void bitonic_sort_algo(int *array, int first, int size, int direction)
+void bitonic_sorting(int *array, int first,
+		int new_size, int direction, int size)
 {
 	int mid;
+	char *dir = direction == 1 ? "UP" : "DOWN";
 
-	if (size > 1)
+	if (new_size > 1)
 	{
-		mid = size / 2;
-		bitonic_sort_algo(array, first, mid, 1);
-		bitonic_sort_algo(array, first + mid, mid, 0);
-		bitonic_merge(array, first, size, direction);
+		printf("Merging [%i/%i] (%s):\n", new_size, size, dir);
+		print_array(array + first, new_size);
+
+		mid = new_size / 2;
+		bitonic_sorting(array, first, mid, 1, size);
+		bitonic_sorting(array, first + mid, mid, 0, size);
+		bitonic_merge(array, first, new_size, direction);
+
+		printf("Merging [%i/%i] (%s):\n", new_size, size, dir);
+		print_array(array + first, new_size);
 	}
 }
 
