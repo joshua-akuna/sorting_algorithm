@@ -5,7 +5,7 @@ int partition_hoare(int *arr, size_t size, int low, int high);
 void swap_hoare(int *num1, int *num2);
 
 /**
- * quick_sort - sorts an array of integers in ascending order
+ * quick_sort_hoare - sorts an array of integers in ascending order
  *	using the Quick sort algorithm.
  * @array: the array of integers to be sorted.
  * @size: size of the array.
@@ -18,7 +18,7 @@ void quick_sort_hoare(int *array, size_t size)
 }
 
 /**
- * quick_sort_array - a recursive function that sorts an array
+ * quick_sorting_hoare - a recursive function that sorts an array
  *	of integers using the Quick sort algorithm and the Lomuto
  *	partition scheme.
  * @arr: the array of integers to sort.
@@ -33,13 +33,13 @@ void quick_sorting_hoare(int *arr, size_t size, int low, int high)
 	if (low < high)
 	{
 		part_idx = partition_hoare(arr, size, low, high);
-		quick_sorting_hoare(arr, size, low, part_idx);
-		quick_sorting_hoare(arr, size, part_idx + 1, high);
+		quick_sorting_hoare(arr, size, low, part_idx - 1);
+		quick_sorting_hoare(arr, size, part_idx, high);
 	}
 }
 
 /**
- * partition - the Lomuto partition scheme.
+ * partition_hoare - implementation of the Hoare partition scheme.
  *
  * @arr: an array of lenght @size.
  * @size: size of the array.
@@ -60,19 +60,18 @@ int partition_hoare(int *arr, size_t size, int low, int high)
 	{
 		do {
 			i++;
-		} while(arr[i] < pivot);
+		} while (arr[i] < pivot);
 		do {
 			j--;
-		} while(arr[j] > pivot);
+		} while (arr[j] > pivot);
 
-		if (i > j)
-			return (j);
-		if (arr[i] > arr[j])
+		if (i < j)
 		{
 			swap_hoare(&arr[i], &arr[j]);
 			print_array(arr, size);
 		}
 	}
+	return (i);
 }
 
 /**
