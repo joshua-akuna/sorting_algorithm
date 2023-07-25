@@ -3,6 +3,11 @@
 void bitonic_sort_algo(int *array, int first, int last, int direction);
 void bitonic_merge(int *array, int first, int size, int direction);
 
+/**
+ * bitonic_sort - sorts the array of integers in ascending order.
+ * array: the array of integers to sort.
+ * @size: size of the array to sort.
+ */
 void bitonic_sort(int *array, size_t size)
 {
         int dir = 1;
@@ -13,6 +18,13 @@ void bitonic_sort(int *array, size_t size)
         bitonic_sort_algo(array, 0, size, dir);
 }
 
+/**
+ * bitonic_sort_algo - sorts the array of integers in ascending order
+ *	recursively by splitting it into sub arrays.
+ * @array: the array of integers to sort.
+ * @size: size of the array.
+ * @direction: specify the sort order, UP (1) or DOWN (0);
+ */
 void bitonic_sort_algo(int *array, int first, int size, int direction)
 {
         int mid;
@@ -26,6 +38,13 @@ void bitonic_sort_algo(int *array, int first, int size, int direction)
         }
 }
 
+/**
+ * bitonic_merge - merges the split subarrays in a sorted manner.
+ * @array: the array of integers to sort.
+ * @first: the first index of the sub array.
+ * @size: size of the array.
+ * @direction: specify the sort order, UP (1) or DOWN (0);
+ */
 void bitonic_merge(int *array, int first, int size, int direction)
 {
         int mid = size / 2, i, temp;
