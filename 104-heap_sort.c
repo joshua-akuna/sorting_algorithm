@@ -49,7 +49,7 @@ void heapify(int *array, int size)
  * sift_down - implementation of the sift down algorithm.
  * @array: an array of integers to sort.
  * @size: size of the array.
- * @first: first index of the array.
+ * @start: starting index of the array.
  * @end: last index of the array.
  */
 void sift_down(int *array, int size, int start, int end)
