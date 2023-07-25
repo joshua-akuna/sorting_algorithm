@@ -57,9 +57,9 @@ void merge(int *array, int *temp, size_t start, size_t mid, size_t end)
 	size_t i = start, j = mid, k = 0;
 
 	printf("Merging...\n");
-	printf("[Left]: ");
+	printf("[left]: ");
 	print_array(array + start, mid - start);
-	printf("[Right]: ");
+	printf("[right]: ");
 	print_array(array + mid, end - mid);
 
 	while (i < mid && j < end)
