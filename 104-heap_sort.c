@@ -3,6 +3,12 @@
 void heapify(int *array, int size);
 void sift_down(int *array, int size, int start, int end);
 
+/**
+ * heap_sort - sorts the array in ascending order using the
+ *	heap sort approach.
+ * @array: array of intgers to sort.
+ * @size: size of the array.
+ */
 void heap_sort(int *array, size_t size)
 {
 	int end, temp;
@@ -23,6 +29,11 @@ void heap_sort(int *array, size_t size)
 	}
 }
 
+/**
+ * heapify - heapifies the subtree of the array
+ * @array: an array of integers to sort.
+ * @size: size of the array.
+ */
 void heapify(int *array, int size)
 {
 	int i = size / 2 - 1;
@@ -34,6 +45,13 @@ void heapify(int *array, int size)
 	}
 }
 
+/**
+ * sift_down - implementation of the sift down algorithm.
+ * @array: an array of integers to sort.
+ * @size: size of the array.
+ * @first: first index of the array.
+ * @end: last index of the array.
+ */
 void sift_down(int *array, int size, int start, int end)
 {
 	int root = start, num, swap, temp;
