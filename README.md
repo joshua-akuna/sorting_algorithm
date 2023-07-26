@@ -8,3 +8,14 @@ Write in the file 0-O, the big O notations of the time complexity of the Bubble 
 * in the best case.
 * in the middle case.
 * in the worst case.
+
+### Insertion sort
+Write a function that sorts a doubly linked list of integers in ascending order using the insertion sort algorithm.
+* Prototype: void insertion_sort_list(int *array, size_t size);
+* You are not allowed to modify the integer n of a node. You have to swap the nodes themselves.
+* You're expected to print the list after each time you swap two elements.
+
+Write in the file 1-O, the big O notation of the time complexity of the insertion sort algorithm, with 1 notaton per line:
+* in the best case.
+* in the middle case.
+* in the worst case.
