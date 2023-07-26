@@ -20,6 +20,17 @@ Write in the file 1-O, the big O notation of the time complexity of the insertio
 * in the middle case.
 * in the worst case.
 
+### 2. Selection
+Write a function that sorts an array of integers in ascending order using the Selection sort algorithm.
+* Prototype: void selection_sort(int *array, size_t size);
+* You're expected to print the list after each time you swap two elements.
+
+Write in the file 2-O, the big O notation of the time complexity of the insertion sort algorithm, with 1 notaton per line:
+* in the best case.
+* in the middle case.
+* in the worst case.
+
+
 ### 3. Quick sort
 Write a function that sorts an array of integers in ascending order using the Quick sort algorithn.
 * Prototype: void quick_sort(int *array, size_t size);
