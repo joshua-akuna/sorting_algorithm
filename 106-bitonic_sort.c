@@ -43,7 +43,7 @@ void bitonic_sorting(int *array, int first,
 		bitonic_sorting(array, first + mid, mid, 0, size);
 		bitonic_merge(array, first, new_size, direction);
 
-		printf("Merging [%i/%i] (%s):\n", new_size, size, dir);
+		printf("Result [%i/%i] (%s):\n", new_size, size, dir);
 		print_array(array + first, new_size);
 	}
 }
